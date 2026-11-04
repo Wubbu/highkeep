@@ -1,0 +1,9 @@
+{
+  "version": "0.18.0",
+  "runtime": "py312-qt612-r1",
+  "update_url": "https://highkeeplabs.com/downloads/Highkeep-0.18.0.hkupdate",
+  "sha256": "1d54346e925562d32720fb2ee385396432f0ee3f86be1114263a2c3ae43a44a2",
+  "setup_url": "https://highkeeplabs.com/downloads/HighkeepSetup.exe",
+  "published": "2026-11-04T07:17:19Z",
+  "notes": "Stronger YouTube ad blocking, more trackers blocked, and see exactly what was blocked on each site."
+}
