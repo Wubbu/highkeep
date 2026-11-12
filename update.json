@@ -7,12 +7,12 @@
   "published": "2026-11-12T08:27:04Z",
   "notes": "Safer password vault (locks when your PC locks or sleeps, harder to crack) and a new update signing key.",
   "v2": {
-    "version": "0.21.0",
+    "version": "0.21.1",
     "runtime": "py312-qt612-r1",
-    "update_url": "https://highkeeplabs.com/downloads/Highkeep-0.21.0.hkupdate",
-    "sha256": "7b4bfe6da6f23e69ce3fe1cac3f479463749c96c88e5751ca82c8604db3a25a8",
+    "update_url": "https://highkeeplabs.com/downloads/Highkeep-0.21.1.hkupdate",
+    "sha256": "c4bc39f58539ceda46171efd2c89df30b6892bc5b02ca01ff04a39e482d4d6ac",
     "setup_url": "https://highkeeplabs.com/downloads/HighkeepSetup.exe",
-    "published": "2026-11-12T08:27:04Z",
-    "notes": "Safer password vault (locks when your PC locks or sleeps, harder to crack) and a new update signing key."
+    "published": "2026-11-12T08:54:44Z",
+    "notes": "The browser extension can now tell when the app is installed. Password vault protected by the password guard."
   }
 }
