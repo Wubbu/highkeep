@@ -1,9 +1,18 @@
 {
-  "version": "0.20.5",
+  "version": "0.21.0",
   "runtime": "py312-qt612-r1",
-  "update_url": "https://highkeeplabs.com/downloads/Highkeep-0.20.5.hkupdate",
-  "sha256": "329bc34f795f57bc165a40c123fc7231df5090de147b29fbf4248e44caf51604",
+  "update_url": "https://highkeeplabs.com/downloads/Highkeep-0.21.0-bridge.hkupdate",
+  "sha256": "4f09f2cb469302b8a67e3a479783425c2b9e09edaf586d16dffe268e5246dfc6",
   "setup_url": "https://highkeeplabs.com/downloads/HighkeepSetup.exe",
-  "published": "2026-11-12T07:04:57Z",
-  "notes": "Faster scans, a link checker that never moves anything on the page, and YouTube ad blocking fixes."
+  "published": "2026-11-12T08:27:04Z",
+  "notes": "Safer password vault (locks when your PC locks or sleeps, harder to crack) and a new update signing key.",
+  "v2": {
+    "version": "0.21.0",
+    "runtime": "py312-qt612-r1",
+    "update_url": "https://highkeeplabs.com/downloads/Highkeep-0.21.0.hkupdate",
+    "sha256": "7b4bfe6da6f23e69ce3fe1cac3f479463749c96c88e5751ca82c8604db3a25a8",
+    "setup_url": "https://highkeeplabs.com/downloads/HighkeepSetup.exe",
+    "published": "2026-11-12T08:27:04Z",
+    "notes": "Safer password vault (locks when your PC locks or sleeps, harder to crack) and a new update signing key."
+  }
 }
