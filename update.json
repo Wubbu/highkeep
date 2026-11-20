@@ -7,12 +7,12 @@
   "published": "2026-11-12T08:27:04Z",
   "notes": "Safer password vault (locks when your PC locks or sleeps, harder to crack) and a new update signing key.",
   "v2": {
-    "version": "0.21.16",
+    "version": "0.21.17",
     "runtime": "py312-qt612-r1",
-    "update_url": "https://highkeeplabs.com/downloads/Highkeep-0.21.16.hkupdate",
-    "sha256": "e3f6a0434ebbd6a8b248220ad58fa8f4714daad58307d1b6180c177a156c88d4",
+    "update_url": "https://highkeeplabs.com/downloads/Highkeep-0.21.17.hkupdate",
+    "sha256": "614864950007983113f7e9bde9b38fd563a9af19578cde3a1c8f73fa43001c52",
     "setup_url": "https://highkeeplabs.com/downloads/HighkeepSetup.exe",
-    "published": "2026-11-20T10:34:01Z",
-    "notes": "YouTube works again without the ad-blocker warning. The browser extension's popup fits without scrolling, its block lists refresh by themselves, and 'Hide sponsored results' is on by default. Link marks never stretch pages any more. Smoother app windows (no more warning sound when opening Highkeep Pro) and tidier layouts. Highkeep now counts installs anonymously (see the privacy policy)."
+    "published": "2026-11-20T10:59:21Z",
+    "notes": "Highkeep can now be installed silently (HighkeepSetup.exe /S), which also makes it installable with winget."
   }
 }
