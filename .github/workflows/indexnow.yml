@@ -1,0 +1,30 @@
+# Tells Bing, Yandex, Seznam, Naver and Yep about every page in the sitemap whenever the site changes (IndexNow).
+# Free; the key file at the site root proves the site is ours. Google doesn't use IndexNow: it reads the sitemap.
+name: IndexNow
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wait for GitHub Pages to publish
+        run: sleep 90
+      - name: Send the sitemap to IndexNow
+        run: |
+          python3 - <<'PY'
+          import json, re, glob, urllib.request
+          sitemap = open("sitemap.xml").read()
+          urls = re.findall(r"<loc>([^<]+)</loc>", sitemap)
+          key = next(f[:-4] for f in glob.glob("*.txt") if re.fullmatch(r"[0-9a-f]{32}\.txt", f))
+          host = urls[0].split("/")[2]
+          body = json.dumps({"host": host, "key": key, "keyLocation": f"https://{host}/{key}.txt", "urlList": urls}).encode()
+          req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body,
+                                       headers={"Content-Type": "application/json; charset=utf-8"})
+          with urllib.request.urlopen(req, timeout=30) as r:
+              print("IndexNow:", r.status, len(urls), "pages")
+          PY
