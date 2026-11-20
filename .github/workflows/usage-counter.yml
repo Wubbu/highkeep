@@ -1,4 +1,4 @@
-# Keeps the monthly check-in files ready on the "usage" release: one tiny file per month, for this month and the
+# Keeps the check-in files ready (installs.txt, plus one per month) on the "usage" release: one tiny file per month, for this month and the
 # next 12. Each copy of Highkeep downloads the current month's file once a month (nothing is sent), so each file's
 # download count is roughly how many copies were in use that month.
 # See the numbers: https://api.github.com/repos/Wubbu/highkeep/releases/tags/usage ("name" and "download_count").
@@ -32,5 +32,8 @@ jobs:
               echo "Highkeep monthly check-in. This file is empty on purpose: copies of Highkeep download it once a month so the number of downloads shows roughly how many copies are in use. Nothing about you or your PC is sent." > "months/$m.txt"
             fi
           done
+          if ! grep -qx "installs.txt" <<< "$have"; then
+            echo "Highkeep install check-in. Empty on purpose: each new copy of Highkeep downloads it once, so the download count is the number of installs. Nothing about you or your PC is sent." > months/installs.txt
+          fi
           if ls months/*.txt >/dev/null 2>&1; then gh release upload usage months/*.txt; fi
           gh release view usage --json assets --jq '.assets[] | "\(.name)  \(.downloadCount) check-ins"'

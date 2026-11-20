@@ -1,0 +1,51 @@
+# Sends a phone notification (ntfy) when the install count goes up, with the totals. Checks every 5 minutes
+# (GitHub sometimes runs it a few minutes late). The ntfy topic is a repository secret, NTFY_TOPIC, so it stays
+# private: anyone who knows a topic name can send to it. Without the secret this does nothing.
+name: Install alerts
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: install-alerts
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+    steps:
+      - name: Last count seen
+        uses: actions/cache/restore@v4
+        with:
+          path: last.txt
+          key: installs-${{ github.run_id }}
+          restore-keys: installs-
+      - name: Compare and notify
+        id: cmp
+        run: |
+          [ -n "$NTFY_TOPIC" ] || { echo "NTFY_TOPIC secret not set"; exit 0; }
+          month=$(date -u +%Y-%m)
+          counts=$(gh release view usage --json assets --jq ".assets[] | select(.name==\"installs.txt\" or .name==\"$month.txt\") | \"\(.name) \(.downloadCount)\"")
+          installs=$(awk '$1=="installs.txt"{print $2}' <<< "$counts"); installs=${installs:-0}
+          active=$(awk -v m="$month.txt" '$1==m{print $2}' <<< "$counts"); active=${active:-0}
+          last=$(cat last.txt 2>/dev/null || echo "")
+          echo "installs=$installs active=$active last=${last:-none}"
+          if [ -z "$last" ]; then
+            echo "first run: remembering $installs"
+          elif [ "$installs" -gt "$last" ]; then
+            new=$((installs - last)); word=install; [ "$new" -gt 1 ] && word=installs
+            curl -s -o /dev/null -w "ntfy %{http_code}\n" \
+              -H "Title: New Highkeep $word (+$new)" -H "Tags: shield" \
+              -d "Total installs: $installs. Active this month: $active." "https://ntfy.sh/$NTFY_TOPIC"
+          fi
+          if [ "$installs" != "$last" ]; then echo "$installs" > last.txt; echo "save=yes" >> "$GITHUB_OUTPUT"; fi
+      - name: Remember the count
+        if: steps.cmp.outputs.save == 'yes'
+        uses: actions/cache/save@v4
+        with:
+          path: last.txt
+          key: installs-${{ github.run_id }}
