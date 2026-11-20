@@ -7,12 +7,12 @@
   "published": "2026-11-12T08:27:04Z",
   "notes": "Safer password vault (locks when your PC locks or sleeps, harder to crack) and a new update signing key.",
   "v2": {
-    "version": "0.21.3",
+    "version": "0.21.16",
     "runtime": "py312-qt612-r1",
-    "update_url": "https://highkeeplabs.com/downloads/Highkeep-0.21.3.hkupdate",
-    "sha256": "e705523209ad8d8b498051b6582353f9e7db46c7941ad835634f3d7be26b2507",
+    "update_url": "https://highkeeplabs.com/downloads/Highkeep-0.21.16.hkupdate",
+    "sha256": "e3f6a0434ebbd6a8b248220ad58fa8f4714daad58307d1b6180c177a156c88d4",
     "setup_url": "https://highkeeplabs.com/downloads/HighkeepSetup.exe",
-    "published": "2026-11-19T09:13:21Z",
-    "notes": "YouTube works again with ad blocking on. Tidier extension popup."
+    "published": "2026-11-20T10:34:01Z",
+    "notes": "YouTube works again without the ad-blocker warning. The browser extension's popup fits without scrolling, its block lists refresh by themselves, and 'Hide sponsored results' is on by default. Link marks never stretch pages any more. Smoother app windows (no more warning sound when opening Highkeep Pro) and tidier layouts. Highkeep now counts installs anonymously (see the privacy policy)."
   }
 }
