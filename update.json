@@ -7,12 +7,12 @@
   "published": "2026-11-12T08:27:04Z",
   "notes": "Safer password vault (locks when your PC locks or sleeps, harder to crack) and a new update signing key.",
   "v2": {
-    "version": "0.21.20",
+    "version": "0.21.27",
     "runtime": "py312-qt612-r1",
-    "update_url": "https://highkeeplabs.com/downloads/Highkeep-0.21.20.hkupdate",
-    "sha256": "af8cf8c97cc97a203f236a827163ece40868bc48f5de270516a25e5efdbb36ff",
+    "update_url": "https://highkeeplabs.com/downloads/Highkeep-0.21.27.hkupdate",
+    "sha256": "6de93d7ce6620aeb584855e5ba72765d750fa41e0ab6af853c94b143e8284340",
     "setup_url": "https://highkeeplabs.com/downloads/HighkeepSetup.exe",
-    "published": "2026-11-20T12:18:02Z",
-    "notes": "What's running: see every program on your PC, with your own scripts named by folder. Safety tips: check if your email or passwords leaked, plus a Spot the scam quiz. Pro adds Fake CAPTCHA guard, Clipboard check and Startup watch. Fixes and clearer wording throughout."
+    "published": "2026-11-20T23:26:38Z",
+    "notes": "A new look: calmer, cleaner and easier to read. App monitor shows every app with your own scripts named by their folder, faster repeat scans, clearer scan results, and the website restyled to match."
   }
 }

@@ -20,7 +20,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Highkeep: free antivirus, scam site blocker and link checker for Windows">
 <meta name="twitter:card" content="summary_large_image">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-uI7+ZRZuaWvfCOzAmitGF6PKt0eUHoC8Al6VPFl7SRQ=' 'sha256-C0BUw92j9fd6MYKsGlIn18+M+8Um/zr5TCu7PuOKNXo=' 'sha256-SBUECAy1F7yeHsQ232Ozk6wPMMkGT14WCHMg3IfoZW0=' 'sha256-GBREUgzX0wQJYh++9lFauWM0fFtBbpJiS1GNEnbZH94=' 'sha256-RVp7Bwhy6oX+4TjOS083J2753Ngam5JLb2FiZlQQpwA=' 'sha256-YP5tNCtwEcEuAfoT4xUyU5WeZQs8+j6tiRUyoW58Mvk=' 'sha256-GdzJPSsDkz1Dh7/wkRNHgK01/7PWUAP0+qGtxW5VrLE=' 'sha256-H0RSXAN5aLIYVeKfdzzNgVmqpTRwoAEFssSkXHeFIw8='; style-src 'sha256-I2tL/14h8o6Abz5gK98DQSklpkklbZUzfwRsSCgKqHE='; img-src 'self' data:; font-src data:; connect-src https://api.pwnedpasswords.com https://api.xposedornot.com https://api.web3forms.com; frame-src https://buy.polar.sh https://polar.sh https://sandbox.polar.sh; base-uri 'none'; form-action 'none'; object-src 'none'; require-trusted-types-for 'script'; trusted-types 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-uI7+ZRZuaWvfCOzAmitGF6PKt0eUHoC8Al6VPFl7SRQ=' 'sha256-C0BUw92j9fd6MYKsGlIn18+M+8Um/zr5TCu7PuOKNXo=' 'sha256-SBUECAy1F7yeHsQ232Ozk6wPMMkGT14WCHMg3IfoZW0=' 'sha256-GBREUgzX0wQJYh++9lFauWM0fFtBbpJiS1GNEnbZH94=' 'sha256-RVp7Bwhy6oX+4TjOS083J2753Ngam5JLb2FiZlQQpwA=' 'sha256-YP5tNCtwEcEuAfoT4xUyU5WeZQs8+j6tiRUyoW58Mvk=' 'sha256-GdzJPSsDkz1Dh7/wkRNHgK01/7PWUAP0+qGtxW5VrLE=' 'sha256-H0RSXAN5aLIYVeKfdzzNgVmqpTRwoAEFssSkXHeFIw8='; style-src 'sha256-GG22j5pQEmlMhHpKNN+j/6pP0SodIoSDfK/ff20vT08='; img-src 'self' data:; font-src data:; connect-src https://api.pwnedpasswords.com https://api.xposedornot.com https://api.web3forms.com; frame-src https://buy.polar.sh https://polar.sh https://sandbox.polar.sh; base-uri 'none'; form-action 'none'; object-src 'none'; require-trusted-types-for 'script'; trusted-types 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <style>
 /* fonts: Bricolage Grotesque and IBM Plex, SIL Open Font License 1.1 (see website/fonts) */
@@ -489,6 +489,105 @@ footer { padding: 36px 0 48px; color: var(--dim); font-size: 14px; }
   .log li { grid-template-columns: 30px 1fr; }
   .log time { display: none; }
 }
+/* ---- Highkeep look, matched to the app: calm surfaces, Windows' own font, solid purple actions, green icons.
+   The gradient glow behind the page stays. Appended after the original styles, so these win. ---- */
+:root {
+  --night: #0d0c12;
+  --stone: #15131c;
+  --stone-2: #1d1a26;
+  --line: #25212f;
+  --text: #f0eff5;
+  --muted: #aaa6bd;
+  --dim: #8e89a3;
+  --display: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --body: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --mono: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --code: "Cascadia Mono", ui-monospace, Consolas, "SFMono-Regular", monospace;
+}
+body { font-size: 16.5px; }
+h1, h2, h3 { letter-spacing: -0.015em; word-spacing: normal; }
+h2 { font-weight: 700; }
+.brand b, .side .logo { font-family: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif; }   /* the wordmark keeps its own font, like the app */
+.kbd, .sha, .ck-field input, code { font-family: var(--code); }
+
+/* buttons: one solid purple main action, outlined secondary ones */
+.btn { border-radius: 10px; font-weight: 600; }
+.btn-main { background: #7c3aed; box-shadow: 0 8px 24px -12px rgba(124, 58, 237, .8); }
+.btn-main:hover { background: #8b5cf6; transform: translateY(-1px); box-shadow: 0 12px 28px -12px rgba(139, 92, 246, .9); }
+.btn-ghost { background: transparent; border-color: rgba(255, 255, 255, .14); }
+.btn-ghost:hover { background: rgba(139, 92, 246, .08); border-color: rgba(196, 181, 253, .6); }
+.go { background: #7c3aed; border-radius: 9px; }
+.go:hover { background: #8b5cf6; }
+.step-btn { background: transparent; border-color: rgba(255, 255, 255, .14); color: var(--text); }
+.step-btn:hover { background: rgba(139, 92, 246, .08); border-color: rgba(196, 181, 253, .6); }
+
+/* cards: flat surfaces, thin borders, a little lift on hover */
+.trio article, .steps li, .after-steps li, .plan, .row, .pick, .big2 div, .week, .vs { border-radius: 14px; }
+.trio article, .steps li, .after-steps li { transition: border-color .2s, transform .2s; }
+.trio article:hover, .steps li:hover, .after-steps li:hover { border-color: #3a3548; transform: translateY(-2px); }
+.tower { border-radius: 16px; background: var(--stone); }
+.tower::before { display: none; }
+.log li { background: rgba(255, 255, 255, .025); border-color: var(--line); }
+.tag { font-family: var(--body); background: rgba(21, 19, 28, .7); }
+.fine, .caption, .scan-msg, .log small, .log time, .days, .vs h4, .why .kicker, .page-head .kicker, .tower-head, .feat .fact { font-family: var(--body); }
+.feat .fact { color: #c9c5d8; background: rgba(255, 255, 255, .04); border-color: var(--line); }
+
+/* icons: a soft green tile with a bright green icon, like the app */
+.ico { background: rgba(52, 211, 153, .10); border: 1px solid rgba(52, 211, 153, .24); border-radius: 11px; }
+.ico svg { stroke: #6ee7b7; }
+.steps li::before, .after-steps li::before { background: #7c3aed; font-family: var(--body); font-weight: 700; }
+
+/* two-part toggles */
+.seg button[aria-selected="true"] { background: #2c2540; }
+.check-card { border-color: var(--line); background: radial-gradient(500px 220px at 100% 0%, rgba(124, 58, 237, .10), transparent 70%), var(--stone); }
+
+/* the app preview: same as the real window now */
+.frame { background: var(--night); }
+.frame-bar { background: #0a090e; }
+.side { background: #0a090e; }
+.tab:hover { background: rgba(255, 255, 255, .05); }
+.tab[aria-selected="true"] { background: rgba(139, 92, 246, .16); }
+.side .status { background: rgba(52, 211, 153, .06); border-color: rgba(52, 211, 153, .25); }
+.side .status::before { box-shadow: none; }
+.pane { background: transparent; }
+.ring .arc { stroke: var(--good); filter: none; }
+.ring svg circle:first-of-type { stroke: rgba(255, 255, 255, .07); }
+.ring .num b { font-family: var(--body); font-weight: 700; }
+.mini b, .big2 b { font-family: var(--body); font-weight: 700; }
+.bars i { width: 26%; border-radius: 5px 5px 2px 2px; background: #3b2f63; transition: background .15s; }
+.bars i:last-child, .bars i:hover { background: #a78bfa; }
+.pick[aria-pressed="true"] { border-color: #8b5cf6; background: rgba(139, 92, 246, .10); }
+.bar i { background: linear-gradient(90deg, #7c3aed, #d946ef); }
+
+/* PRO badges: rounded, with a faint outline slowly circling them */
+@property --hk-a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+@keyframes hk-spin { to { --hk-a: 360deg; } }
+.pro-pill, .plan-tag { isolation: isolate; border-radius: 999px; font-family: var(--body);
+  background: linear-gradient(135deg, #7c3aed, #c026d3); }
+.pro-pill { position: relative; }          /* .plan-tag is already placed absolutely in its card's corner */
+.plan-tag { padding: 6px 12px; }
+.pro-pill::after, .plan-tag::after { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+  background: conic-gradient(from var(--hk-a), rgba(255, 255, 255, .85), rgba(233, 213, 255, .35) 15%, transparent 38% 62%,
+              rgba(233, 213, 255, .35) 85%, rgba(255, 255, 255, .85));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  animation: hk-spin 3.2s linear infinite; }
+
+/* the Pro buy button: gradient, with a bright outline that spins round it on hover (as in the app) */
+.plan.pro .btn-main { position: relative; isolation: isolate; background: linear-gradient(135deg, #7c3aed, #c026d3); }
+.plan.pro .btn-main:hover { background: linear-gradient(135deg, #8b5cf6, #d946ef); }
+.plan.pro .btn-main::after { content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 2px; pointer-events: none;
+  background: conic-gradient(from var(--hk-a), #fff, rgba(240, 171, 252, .8) 12%, transparent 35% 50%, #fff 50%, rgba(240, 171, 252, .7) 62%, transparent 85%, #fff);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  opacity: 0; transition: opacity .2s; animation: hk-spin 2.2s linear infinite; }
+.plan.pro .btn-main:hover::after { opacity: 1; }
+.plan.pro { border-color: rgba(192, 38, 211, .45); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pro-pill::after, .plan-tag::after, .plan.pro .btn-main::after { animation: none; }
+  .trio article:hover, .steps li:hover, .after-steps li:hover, .btn-main:hover { transform: none; }
+}
 </style>
 </head>
 <body>
@@ -520,7 +619,7 @@ footer { padding: 36px 0 48px; color: var(--dim); font-size: 14px; }
           <a class="btn btn-main" href="https://highkeeplabs.com/downloads/HighkeepSetup.exe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>Download for Windows</a>
           <a class="btn btn-ghost" href="/#how">How it works</a>
         </div>
-        <p class="fine">Free download · v0.21.20 · 56 MB · Windows 10 &amp; 11</p>
+        <p class="fine">Free download · v0.21.27 · 56 MB · Windows 10 &amp; 11</p>
       </div>
 
       <div class="tower" aria-label="Examples of what Highkeep stops">
@@ -575,7 +674,7 @@ footer { padding: 36px 0 48px; color: var(--dim); font-size: 14px; }
                   </svg>
                   <div class="num"><b id="score">82%</b><small>PROTECTED</small></div>
                 </div>
-                <button class="step-btn" id="fix">Enable 2 extra protections</button>
+                <button class="step-btn" id="fix">Turn on 2 more protections</button>
               </div>
               <div class="minis right">
                 <div class="mini"><b class="warn" id="winScore">7/9</b><span>Windows protection</span></div>
@@ -756,8 +855,8 @@ footer { padding: 36px 0 48px; color: var(--dim); font-size: 14px; }
         <h2>Get Highkeep</h2>
         <p class="lede">Free to download and use. No account, no email, no card.</p>
         <a class="btn btn-main" id="dl" href="https://highkeeplabs.com/downloads/HighkeepSetup.exe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>Download for Windows</a>
-        <p class="fine">v0.21.20 beta · 56 MB · Windows 10 &amp; 11, 64-bit</p>
-        <p class="sha">SHA-256 <span class="mono">78c222e42d13949a363bfb7db179d8baf61a6c2cde6e263e6edd895e64821c9b</span></p>
+        <p class="fine">v0.21.27 beta · 56 MB · Windows 10 &amp; 11, 64-bit</p>
+        <p class="sha">SHA-256 <span class="mono">ea108687bb4fb7ad1fe23e627582cb4e9624bd4d3b08484f7933c1aefb0bbbc9</span></p>
       </div>
       <ol class="steps">
         <li><b>Download</b><p>If your browser says the file is uncommon, choose <span class="kbd">Keep</span>.</p></li>
