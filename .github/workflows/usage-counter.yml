@@ -1,0 +1,36 @@
+# Keeps the monthly check-in files ready on the "usage" release: one tiny file per month, for this month and the
+# next 12. Each copy of Highkeep downloads the current month's file once a month (nothing is sent), so each file's
+# download count is roughly how many copies were in use that month.
+# See the numbers: https://api.github.com/repos/Wubbu/highkeep/releases/tags/usage ("name" and "download_count").
+name: Usage counter
+on:
+  schedule:
+    - cron: "17 6 1 * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/workflows/usage-counter.yml"]
+permissions:
+  contents: write
+jobs:
+  files:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Create the release and the month files
+        run: |
+          gh release view usage >/dev/null 2>&1 || gh release create usage --prerelease \
+            --title "Usage counter (no personal data)" \
+            --notes "Once a month, each copy of Highkeep downloads that month's tiny file from here. GitHub's download count for each file is roughly how many copies of Highkeep were in use that month. Nothing is sent: no ID, no PC details, no settings. This is not an app download; get Highkeep at https://highkeeplabs.com"
+          have=$(gh release view usage --json assets --jq '.assets[].name')
+          mkdir -p months
+          for i in $(seq 0 12); do
+            m=$(date -u -d "$(date -u +%Y-%m-01) +$i month" +%Y-%m)
+            if ! grep -qx "$m.txt" <<< "$have"; then
+              echo "Highkeep monthly check-in. This file is empty on purpose: copies of Highkeep download it once a month so the number of downloads shows roughly how many copies are in use. Nothing about you or your PC is sent." > "months/$m.txt"
+            fi
+          done
+          if ls months/*.txt >/dev/null 2>&1; then gh release upload usage months/*.txt; fi
+          gh release view usage --json assets --jq '.assets[] | "\(.name)  \(.downloadCount) check-ins"'
