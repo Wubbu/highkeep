@@ -20,7 +20,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Highkeep: free antivirus, scam site blocker and link checker for Windows">
 <meta name="twitter:card" content="summary_large_image">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-uI7+ZRZuaWvfCOzAmitGF6PKt0eUHoC8Al6VPFl7SRQ=' 'sha256-C0BUw92j9fd6MYKsGlIn18+M+8Um/zr5TCu7PuOKNXo=' 'sha256-SBUECAy1F7yeHsQ232Ozk6wPMMkGT14WCHMg3IfoZW0=' 'sha256-GBREUgzX0wQJYh++9lFauWM0fFtBbpJiS1GNEnbZH94=' 'sha256-RVp7Bwhy6oX+4TjOS083J2753Ngam5JLb2FiZlQQpwA=' 'sha256-YP5tNCtwEcEuAfoT4xUyU5WeZQs8+j6tiRUyoW58Mvk=' 'sha256-GdzJPSsDkz1Dh7/wkRNHgK01/7PWUAP0+qGtxW5VrLE=' 'sha256-H0RSXAN5aLIYVeKfdzzNgVmqpTRwoAEFssSkXHeFIw8='; style-src 'sha256-Qc4Z6w+gzRokARFTinKIX7WN6mhAKoijOt55UFMvDR8='; img-src 'self' data:; font-src data:; connect-src https://api.pwnedpasswords.com https://api.xposedornot.com https://api.web3forms.com; frame-src https://buy.polar.sh https://polar.sh https://sandbox.polar.sh; base-uri 'none'; form-action 'none'; object-src 'none'; require-trusted-types-for 'script'; trusted-types 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-uI7+ZRZuaWvfCOzAmitGF6PKt0eUHoC8Al6VPFl7SRQ=' 'sha256-C0BUw92j9fd6MYKsGlIn18+M+8Um/zr5TCu7PuOKNXo=' 'sha256-SBUECAy1F7yeHsQ232Ozk6wPMMkGT14WCHMg3IfoZW0=' 'sha256-GBREUgzX0wQJYh++9lFauWM0fFtBbpJiS1GNEnbZH94=' 'sha256-RVp7Bwhy6oX+4TjOS083J2753Ngam5JLb2FiZlQQpwA=' 'sha256-YP5tNCtwEcEuAfoT4xUyU5WeZQs8+j6tiRUyoW58Mvk=' 'sha256-GdzJPSsDkz1Dh7/wkRNHgK01/7PWUAP0+qGtxW5VrLE=' 'sha256-H0RSXAN5aLIYVeKfdzzNgVmqpTRwoAEFssSkXHeFIw8='; style-src 'sha256-4L4jYmpjitozCpBySES5s5W4mxWtWTZLU3HX/pi3f5c='; img-src 'self' data:; font-src data:; connect-src https://api.pwnedpasswords.com https://api.xposedornot.com https://api.web3forms.com; frame-src https://buy.polar.sh https://polar.sh https://sandbox.polar.sh; base-uri 'none'; form-action 'none'; object-src 'none'; require-trusted-types-for 'script'; trusted-types 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <style>
 /* fonts: Bricolage Grotesque and IBM Plex, SIL Open Font License 1.1 (see website/fonts) */
@@ -600,7 +600,9 @@ h2 { letter-spacing: -0.005em; }
 @media (min-width: 901px) {
   .hero { align-items: stretch; }
   .tower { margin: 0; display: flex; flex-direction: column; }   /* spans the whole text column: tag to download line */
-  .tower .log { flex: 1; grid-auto-rows: 1fr; }
+  .tower { padding-bottom: 33px; }
+  /* first row starts where the headline's letters start, last row ends with the buttons */
+  .tower .log { flex: 1; grid-auto-rows: 1fr; margin-top: calc(7px + 0.09 * clamp(44px, 6.4vw, 76px)); }
   .log li { align-content: center; align-items: center; }
 }
 </style>
