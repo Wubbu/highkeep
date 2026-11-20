@@ -177,3 +177,5 @@ h2 { font-weight: 700; }
 
 .nav nav a.btn-main { background: #7c3aed; box-shadow: 0 8px 24px -12px rgba(124, 58, 237, .8); }
 .nav nav a.btn-main:hover { background: #8b5cf6; }
+
+:root { --night: #0b0812; }

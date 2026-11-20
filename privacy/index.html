@@ -20,7 +20,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Highkeep: free antivirus, scam site blocker and link checker for Windows">
 <meta name="twitter:card" content="summary_large_image">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-uI7+ZRZuaWvfCOzAmitGF6PKt0eUHoC8Al6VPFl7SRQ=' 'sha256-C0BUw92j9fd6MYKsGlIn18+M+8Um/zr5TCu7PuOKNXo=' 'sha256-SBUECAy1F7yeHsQ232Ozk6wPMMkGT14WCHMg3IfoZW0=' 'sha256-GBREUgzX0wQJYh++9lFauWM0fFtBbpJiS1GNEnbZH94=' 'sha256-RVp7Bwhy6oX+4TjOS083J2753Ngam5JLb2FiZlQQpwA=' 'sha256-YP5tNCtwEcEuAfoT4xUyU5WeZQs8+j6tiRUyoW58Mvk=' 'sha256-GdzJPSsDkz1Dh7/wkRNHgK01/7PWUAP0+qGtxW5VrLE=' 'sha256-H0RSXAN5aLIYVeKfdzzNgVmqpTRwoAEFssSkXHeFIw8='; style-src 'sha256-GG22j5pQEmlMhHpKNN+j/6pP0SodIoSDfK/ff20vT08='; img-src 'self' data:; font-src data:; connect-src https://api.pwnedpasswords.com https://api.xposedornot.com https://api.web3forms.com; frame-src https://buy.polar.sh https://polar.sh https://sandbox.polar.sh; base-uri 'none'; form-action 'none'; object-src 'none'; require-trusted-types-for 'script'; trusted-types 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-uI7+ZRZuaWvfCOzAmitGF6PKt0eUHoC8Al6VPFl7SRQ=' 'sha256-C0BUw92j9fd6MYKsGlIn18+M+8Um/zr5TCu7PuOKNXo=' 'sha256-SBUECAy1F7yeHsQ232Ozk6wPMMkGT14WCHMg3IfoZW0=' 'sha256-GBREUgzX0wQJYh++9lFauWM0fFtBbpJiS1GNEnbZH94=' 'sha256-RVp7Bwhy6oX+4TjOS083J2753Ngam5JLb2FiZlQQpwA=' 'sha256-YP5tNCtwEcEuAfoT4xUyU5WeZQs8+j6tiRUyoW58Mvk=' 'sha256-GdzJPSsDkz1Dh7/wkRNHgK01/7PWUAP0+qGtxW5VrLE=' 'sha256-H0RSXAN5aLIYVeKfdzzNgVmqpTRwoAEFssSkXHeFIw8='; style-src 'sha256-djv7u2qH379u4NySD91qC5Iv371jQ3bnE7HDi4w6bCI='; img-src 'self' data:; font-src data:; connect-src https://api.pwnedpasswords.com https://api.xposedornot.com https://api.web3forms.com; frame-src https://buy.polar.sh https://polar.sh https://sandbox.polar.sh; base-uri 'none'; form-action 'none'; object-src 'none'; require-trusted-types-for 'script'; trusted-types 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <style>
 /* fonts: Bricolage Grotesque and IBM Plex, SIL Open Font License 1.1 (see website/fonts) */
@@ -587,6 +587,21 @@ h2 { font-weight: 700; }
 @media (prefers-reduced-motion: reduce) {
   .pro-pill::after, .plan-tag::after, .plan.pro .btn-main::after { animation: none; }
   .trio article:hover, .steps li:hover, .after-steps li:hover, .btn-main:hover { transform: none; }
+}
+
+/* back to the warmer, pinker glow behind the page */
+:root { --night: #0b0812; }
+body { background-image: radial-gradient(1100px 620px at 78% -8%, rgba(139, 92, 246, .24), transparent 62%),
+                         radial-gradient(800px 520px at 2% 22%, rgba(217, 70, 239, .14), transparent 70%); }
+/* the big headline: real letter spacing (the tight setting made "k" and "g" touch) */
+.hero h1 { font-weight: 700; letter-spacing: -0.005em; }
+h2 { letter-spacing: -0.005em; }
+/* the activity panel lines up with the text: its top with the headline, its bottom with the buttons */
+@media (min-width: 901px) {
+  .hero { align-items: stretch; }
+  .tower { margin: 53px 0 34px; display: flex; flex-direction: column; }
+  .tower .log { flex: 1; grid-auto-rows: 1fr; }
+  .log li { align-content: center; align-items: center; }
 }
 </style>
 </head>
