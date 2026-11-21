@@ -20,7 +20,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Highkeep: free antivirus, scam site blocker and link checker for Windows">
 <meta name="twitter:card" content="summary_large_image">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-uI7+ZRZuaWvfCOzAmitGF6PKt0eUHoC8Al6VPFl7SRQ=' 'sha256-C0BUw92j9fd6MYKsGlIn18+M+8Um/zr5TCu7PuOKNXo=' 'sha256-SBUECAy1F7yeHsQ232Ozk6wPMMkGT14WCHMg3IfoZW0=' 'sha256-GBREUgzX0wQJYh++9lFauWM0fFtBbpJiS1GNEnbZH94=' 'sha256-RVp7Bwhy6oX+4TjOS083J2753Ngam5JLb2FiZlQQpwA=' 'sha256-YP5tNCtwEcEuAfoT4xUyU5WeZQs8+j6tiRUyoW58Mvk=' 'sha256-GdzJPSsDkz1Dh7/wkRNHgK01/7PWUAP0+qGtxW5VrLE=' 'sha256-H0RSXAN5aLIYVeKfdzzNgVmqpTRwoAEFssSkXHeFIw8=' 'sha256-lIXYSuC9qvB9E62N1UEtavzfdVQCz0xFLPXFv/PTGEY='; style-src 'sha256-TTNDJ5kPIP7zYU8L7adxQf1nqu7alPeb2FgyeH7gIn8='; img-src 'self' data:; font-src data:; connect-src https://api.pwnedpasswords.com https://api.xposedornot.com https://api.web3forms.com; frame-src https://buy.polar.sh https://polar.sh https://sandbox.polar.sh; base-uri 'none'; form-action 'none'; object-src 'none'; require-trusted-types-for 'script'; trusted-types 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-uI7+ZRZuaWvfCOzAmitGF6PKt0eUHoC8Al6VPFl7SRQ=' 'sha256-C0BUw92j9fd6MYKsGlIn18+M+8Um/zr5TCu7PuOKNXo=' 'sha256-SBUECAy1F7yeHsQ232Ozk6wPMMkGT14WCHMg3IfoZW0=' 'sha256-GBREUgzX0wQJYh++9lFauWM0fFtBbpJiS1GNEnbZH94=' 'sha256-RVp7Bwhy6oX+4TjOS083J2753Ngam5JLb2FiZlQQpwA=' 'sha256-YP5tNCtwEcEuAfoT4xUyU5WeZQs8+j6tiRUyoW58Mvk=' 'sha256-GdzJPSsDkz1Dh7/wkRNHgK01/7PWUAP0+qGtxW5VrLE=' 'sha256-H0RSXAN5aLIYVeKfdzzNgVmqpTRwoAEFssSkXHeFIw8=' 'sha256-lIXYSuC9qvB9E62N1UEtavzfdVQCz0xFLPXFv/PTGEY='; style-src 'sha256-OM3W0uYz4UnwCN8WIbKM1qF4vMBR0b5xYpKN3zGRs1A='; img-src 'self' data:; font-src data:; connect-src https://api.pwnedpasswords.com https://api.xposedornot.com https://api.web3forms.com; frame-src https://buy.polar.sh https://polar.sh https://sandbox.polar.sh; base-uri 'none'; form-action 'none'; object-src 'none'; require-trusted-types-for 'script'; trusted-types 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <style>
 /* fonts: Bricolage Grotesque and IBM Plex, SIL Open Font License 1.1 (see website/fonts) */
@@ -139,7 +139,10 @@ p { margin: 0; }
 .trio article { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 22px; border-radius: 16px; border: 1px solid var(--line); background: var(--stone); }
 .trio p { color: var(--muted); font-size: 15px; margin-top: 6px; }
 .lk { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; vertical-align: middle; position: relative; top: -.08em; }
-.lk.ok { background: #d1fae5; color: #047857; } .lk.bad { background: #dc2626; color: #fff; } .lk.warn { background: #fbbf24; color: #451a03; }
+.lk.ok { background: #d1fae5; color: #047857; }
+/* a sample of Highkeep Shield's safe-link underline: a green line with tiny wall blocks along it */
+.lk-line { padding-bottom: 3px; background: linear-gradient(#34d399, #34d399) 0 calc(100% - 2px) / 100% 1.5px no-repeat,
+  linear-gradient(90deg, #34d399 50%, transparent 50%) 0 100% / 8px 2px repeat-x; } .lk.bad { background: #dc2626; color: #fff; } .lk.warn { background: #fbbf24; color: #451a03; }
 @media (max-width: 900px) { .trio { grid-template-columns: 1fr; } }
 
 /* interactive app preview (a simplified Highkeep window, not a screenshot) */
@@ -636,7 +639,7 @@ h2 { letter-spacing: -0.005em; }
           <a class="btn btn-main" href="https://highkeeplabs.com/downloads/HighkeepSetup.exe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>Download for Windows</a>
           <a class="btn btn-ghost" href="/#how">How it works</a>
         </div>
-        <p class="fine">Free download · v0.21.31 · 56 MB · Windows 10 &amp; 11</p>
+        <p class="fine">Free download · v0.21.39 · 56 MB · Windows 10 &amp; 11</p>
       </div>
 
       <div class="tower" aria-label="Examples of what Highkeep stops">
@@ -656,7 +659,7 @@ h2 { letter-spacing: -0.005em; }
       <article><span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></svg></span>
         <div><h3>Site &amp; ad blocker</h3><p>Stops scam, phishing and malware sites before they load. Ads and trackers too.</p></div></article>
       <article><span class="ico"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></span>
-        <div><h3>Link checker</h3><p>A <b class="lk ok"><svg class="ic" aria-hidden="true"><use href="#i-ok"/></svg></b> or <b class="lk bad"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></b> next to every link, in Discord, Gmail and everywhere else.</p></div></article>
+        <div><h3>Link checker</h3><p>A <span class="lk-line">green underline</span> under safe links and a <b class="lk bad"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></b> on dangerous ones, in Discord, Gmail and everywhere else.</p></div></article>
     </section>
 
     <section class="shot" aria-label="Interactive preview of the Highkeep app">
@@ -817,7 +820,7 @@ h2 { letter-spacing: -0.005em; }
         </article>
         <article class="feat">
           <span class="ico"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></span>
-          <div><h3>Every link checked before you click</h3><p>Links on any site get a <b class="lk ok"><svg class="ic" aria-hidden="true"><use href="#i-ok"/></svg></b> if they're clean, <b class="lk warn"><svg class="ic" aria-hidden="true"><use href="#i-q"/></svg></b> if they imitate a real site like Discord or Steam, and <b class="lk bad"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></b> if they're dangerous.</p><span class="fact">catches brand-new fake sites like dlscord-nitro.gift</span></div>
+          <div><h3>Every link checked before you click</h3><p>Safe links on any site get a <span class="lk-line">green underline</span>. Links that imitate a real site like Discord or Steam get a <b class="lk warn"><svg class="ic" aria-hidden="true"><use href="#i-q"/></svg></b>, and dangerous ones get a <b class="lk bad"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></b>.</p><span class="fact">catches brand-new fake sites like dlscord-nitro.gift</span></div>
         </article>
       </div>
     </section>
@@ -872,8 +875,8 @@ h2 { letter-spacing: -0.005em; }
         <h2>Get Highkeep</h2>
         <p class="lede">Free to download and use. No account, no email, no card.</p>
         <a class="btn btn-main" id="dl" href="https://highkeeplabs.com/downloads/HighkeepSetup.exe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>Download for Windows</a>
-        <p class="fine">v0.21.31 beta · 56 MB · Windows 10 &amp; 11, 64-bit</p>
-        <p class="sha">SHA-256 <span class="mono">682f72cdd5a9c31bb0b92b6bff49ab26bc7710d905a1ace1506c745df2be7837</span></p>
+        <p class="fine">v0.21.39 beta · 56 MB · Windows 10 &amp; 11, 64-bit</p>
+        <p class="sha">SHA-256 <span class="mono">9877e743eaac4c362862fec1724ee2d3aa0873e038e31f8f1b4f2a66ca6fdc35</span></p>
       </div>
       <ol class="steps">
         <li><b>Download</b><p>If your browser says the file is uncommon, choose <span class="kbd">Keep</span>.</p></li>
@@ -1025,7 +1028,7 @@ h2 { letter-spacing: -0.005em; }
       <p>If you use the password and email checks in the app (Safety tips): for a password, only the first 5 characters of its fingerprint (SHA-1 hash) are sent to Have I Been Pwned, so the password itself never leaves your PC. Checking your saved passwords works the same way. For an email address, the address is sent to XposedOrNot, the free breach database that answers the check. Highkeep doesn't keep a copy.</p>
 
       <h2>The Highkeep Shield browser extension</h2>
-      <p>Highkeep Shield checks the addresses of pages and links against lists stored inside the extension, on your computer. Those addresses are not sent anywhere. To put a check mark next to links, it reads link addresses on the pages you visit; it does not read or collect anything else on the page.</p>
+      <p>Highkeep Shield checks the addresses of pages and links against lists stored inside the extension, on your computer. Those addresses are not sent anywhere. To underline and mark links, it reads link addresses on the pages you visit; it does not read or collect anything else on the page.</p>
       <p>It counts what it blocked (for example, 12 ads on a news site) and passes those counts only to the Highkeep app on the same computer, so you can see them on the dashboard. They never leave your PC.</p>
       <p>If you choose to add your own Google Safe Browsing key in the extension's options, page addresses are also checked with Google, and Google's privacy policy applies to that check. This is off unless you turn it on.</p>
 

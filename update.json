@@ -7,12 +7,12 @@
   "published": "2026-11-12T08:27:04Z",
   "notes": "Safer password vault (locks when your PC locks or sleeps, harder to crack) and a new update signing key.",
   "v2": {
-    "version": "0.21.31",
+    "version": "0.21.39",
     "runtime": "py312-qt612-r1",
-    "update_url": "https://highkeeplabs.com/downloads/Highkeep-0.21.31.hkupdate",
-    "sha256": "a6cbd131639d22fbe8b58c9071ec3b543e7b50fa1c26041975226431100ee9b2",
+    "update_url": "https://highkeeplabs.com/downloads/Highkeep-0.21.39.hkupdate",
+    "sha256": "2b6590f2ea120c8d93d462c135cd32beeaa6e2d5f113e7dcf1df006411729896",
     "setup_url": "https://highkeeplabs.com/downloads/HighkeepSetup.exe",
-    "published": "2026-11-21T00:05:28Z",
-    "notes": "Larger, brighter and crisper text throughout the app."
+    "published": "2026-11-21T12:55:57Z",
+    "notes": "Faster App monitor with loading indicators, startup apps preloaded, and a cleaner Highkeep Shield: green underlines for safe links and clearer search result cards."
   }
 }
