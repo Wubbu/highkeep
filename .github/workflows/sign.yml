@@ -1,0 +1,64 @@
+name: Sign
+# Signs the .exe files in unsigned/ with Highkeep's Artifact Signing certificate and pushes them to the `signed` branch.
+# Azure only accepts the login from this repository's `signing` branch (federated credential, no stored secret).
+on:
+  push:
+    branches: [signing]
+permissions:
+  id-token: write
+  contents: write
+concurrency: { group: signing, cancel-in-progress: false }
+jobs:
+  sign:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Azure login
+        uses: azure/login@v3
+        with:
+          client-id: 9d944bf2-727a-4d39-a14e-765ca0cc6728
+          tenant-id: 8c6c4966-0587-4991-99ea-1c2a79a7c095
+          subscription-id: 33282e5a-b4d5-483d-a8a3-a0e15e62d861
+      - name: Sign
+        uses: azure/artifact-signing-action@v2
+        with:
+          endpoint: https://eus.codesigning.azure.net/
+          signing-account-name: highkeepsigning
+          certificate-profile-name: highkeep
+          files-folder: ${{ github.workspace }}\unsigned
+          files-folder-filter: exe,dll
+          file-digest: SHA256
+          timestamp-rfc3161: http://timestamp.acs.microsoft.com
+          timestamp-digest: SHA256
+          description: Highkeep
+          description-url: https://highkeeplabs.com
+          exclude-environment-credential: true
+          exclude-workload-identity-credential: true
+          exclude-managed-identity-credential: true
+          exclude-shared-token-cache-credential: true
+          exclude-visual-studio-credential: true
+          exclude-visual-studio-code-credential: true
+          exclude-azure-cli-credential: false
+          exclude-azure-powershell-credential: true
+          exclude-azure-developer-cli-credential: true
+          exclude-interactive-browser-credential: true
+      - name: Check signatures
+        shell: pwsh
+        run: |
+          Get-ChildItem unsigned -File | ForEach-Object {
+            $s = Get-AuthenticodeSignature $_.FullName
+            "$($_.Name): $($s.Status) $($s.SignerCertificate.Subject)"
+            if ($s.Status -ne 'Valid') { throw "$($_.Name) is not validly signed" }
+          }
+      - name: Return the signed files
+        shell: bash
+        run: |
+          mkdir -p ../out && cp unsigned/* ../out/ && cp request.txt ../out/
+          cd ../out
+          git init -q -b signed
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "signed $(cat request.txt)"
+          git push -q --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" signed
